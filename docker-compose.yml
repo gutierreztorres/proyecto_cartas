@@ -1,0 +1,15 @@
+services: 
+    # Aplicación Django
+  proyecto_cartas:
+    image: proyecto-cartas:25122904
+    container_name: proyecto_cartas
+    ports:
+      - "8003:8000"
+    environment:
+      - PYTHONPATH=/django_app
+      - DJANGO_SETTINGS_MODULE=configuracion.settings
+    volumes:
+      - /var/www/carta.devmo.es/staticfiles:/django_app/staticfiles
+    command: >
+      bash -c "python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 --workers 2 --threads 2 --timeout 120 --worker-class sync configuracion.wsgi:application"
+    restart: unless-stopped

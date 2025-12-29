@@ -23,10 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-svj6@#m!d+2q@s@0w%vxd8hm+l16hx@f_%au&s_)c5*ue2=b6*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'carta.devmo.es', 'www.carta.devmo.es', 'https://carta.devmo.es']
 
+# CSRF Configuration
+CSRF_TRUSTED_ORIGINS = ['127.0.0.1', 'localhost', 'carta.devmo.es', 'https://carta.devmo.es']
 
 # Application definition
 
