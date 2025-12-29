@@ -17,8 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from cartas import views
-
+from respuesta import views as respuesta_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('carta/<uuid:pk>/', views.detalle_carta, name='detalle_carta'),
+    path('responder/', respuesta_views.responder_view, name='responder'),
 ]

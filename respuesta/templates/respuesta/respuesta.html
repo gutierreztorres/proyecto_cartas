@@ -1,0 +1,45 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Escribir respuesta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'respuesta/css/estilos.css' %}"> 
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Pinyon+Script&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <style>
+        .carta-container {
+            /* Usamos la etiqueta de Django aquí porque el HTML sí la reconoce */
+            background-image: url("{% static 'respuesta/img/a.jpg' %}");
+        }
+    </style>
+</head>
+<body class="fondo-pagina">
+
+    <div class="carta-container">
+        <h1 class="titulo-carta">Escribir respuesta</h1>
+        
+        <form method="post" class="formulario-carta">
+            {% csrf_token %}
+            
+            <div class="campo">
+                <label for="{{ form.nombre.id_for_label }}">De parte de:</label>
+                {{ form.nombre }}
+            </div>
+
+            <div class="campo">
+                <label for="{{ form.texto.id_for_label }}">Tu mensaje:</label>
+                {{ form.texto }}
+            </div>
+
+            <button type="submit" class="btn-enviar">Sellar y enviar</button>
+        </form>
+        <div class="sello">❤</div>
+        <div class="regresar">
+            <a href="javascript:history.back()">← Volver a la carta</a>
+        </div>
+    </div>
+
+</body>
+</html>

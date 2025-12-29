@@ -1,0 +1,168 @@
+.sello {
+    position: absolute;
+    bottom: 30px; /* Posicionado abajo */
+    left: 40px;  /* Posicionado a la izquierda */
+    width: 75px;
+    height: 75px;
+    background: radial-gradient(#a52a2a, #7f0000);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e5c100;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2em;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.4), inset 0 0 10px rgba(0,0,0,0.5);
+    border: 3px solid #8b0000;
+    transform: rotate(15deg);
+    cursor: default;
+    user-select: none;
+}
+
+/* Detalle del borde irregular del sello */
+.sello::before {
+    content: '';
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    border-radius: 45%;
+    background: rgba(139, 0, 0, 0.2);
+    z-index: -1;
+    filter: blur(2px);
+}
+
+.fondo-pagina {
+    background-color: #830000ff;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    padding: 20px;
+}
+
+.carta-container {
+    background: #fff;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    position: relative;
+    border: 1px solid #d4af37;
+}
+
+.carta-container::before {
+    content: "";
+    position: absolute;
+    top: 5px; left: 5px; right: 5px; bottom: 5px;
+    border: 1px solid #d4af37;
+    pointer-events: none;
+}
+
+.titulo-carta {
+    text-align: center;
+    color: #000000ff;
+    margin-bottom: 30px;
+}
+
+.formulario-carta .campo {
+    margin-bottom: 20px;
+}
+
+.formulario-carta label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #000000;
+    font-size: 1.4rem;
+}
+
+.formulario-carta input, 
+.formulario-carta textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #830000ff;
+    background-color: transparent;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: #000000;
+    box-sizing: border-box;
+}
+
+.formulario-carta input:focus, 
+.formulario-carta textarea:focus {
+    outline: none;
+    border: 1px solid #830000ff;
+}
+
+.btn-enviar {
+    background-color: #830000ff;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Dancing Script', cursive;;
+    font-size: 1.4rem;
+    transition: background 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: #830000ff;
+}
+
+.regresar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.regresar a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+@media (max-width: 600px) {
+
+    body {
+        padding: 0px; 
+    }
+    .fondo-pagina {
+        background-color: #830000ff;
+        align-items: flex-start;
+    }
+
+    .carta-container {
+        padding: 25px 15px;
+        width: 100%; 
+        margin-top: 10px;
+    }
+
+    .titulo-carta {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .formulario-carta input, 
+    .formulario-carta textarea {
+        font-size: 1.2rem;
+    }
+
+    .btn-enviar {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+    .sello {
+        /* Hacemos el sello un poco más pequeño en móvil */
+        width: 55px;
+        height: 55px;
+        font-size: 1.8em;
+        bottom: 20px;
+        right: 20px;
+    }
+}

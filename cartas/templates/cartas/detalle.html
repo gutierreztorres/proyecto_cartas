@@ -8,7 +8,7 @@
     
     <style>
         body {
-            background-color: #2c2c2c; /* Fondo oscuro para resaltar la carta */
+            background-color: #830000ff; /* Fondo oscuro para resaltar la carta */
             display: block;
             justify-content: center;
             min-height: 100vh;
@@ -18,7 +18,6 @@
         }
         
         .carta {
-            background-color: #f4ecd8;
             background-image: url("{% static 'cartas/img/a.jpg' %}");
             background-size: cover;
             background-position: center;
@@ -107,9 +106,53 @@
             color: #000000ff;
             text-align: left;
         }
+        .acciones {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* El botón principal */
+        .btn-responder {
+            display: inline-block;
+            background-color: #830000ff; /* Marrón lacre/cuero */
+            color: #d4af37 !important;
+            padding: 12px 35px;
+            text-decoration: none;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            border-radius: 4px;
+            
+            /* Sombra suave para dar profundidad */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            
+            /* Transición suave para los efectos */
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        /* Efecto cuando el ratón está encima (Hover) */
+        .btn-responder:hover {
+            background-color: #740202ff; /* Marrón más oscuro */
+            transform: translateY(-3px); /* Se eleva un poco */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            border-color: #d4af37; /* Borde dorado tipo "pan de oro" */
+        }
+
+        /* Efecto cuando se hace clic (Active) */
+        .btn-responder:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        } 
 
         /* --- Adaptación para Móviles (Responsive) --- */
         @media (max-width: 600px) {
+            .btn-responder {
+                display: block; /* Ocupa todo el ancho disponible */
+                margin: 0 10px;
+                padding: 15px;
+                font-size: 1.3rem;
+            }
             body {
                 /* Disminuimos la presencia del fondo oscuro en móviles */
                 padding: 0px; 
@@ -168,6 +211,10 @@
             Andrea.
         </div>
         <div class="sello">❤</div>
+        <div class="acciones">
+            <a href="{% url 'responder' %}" class="btn-responder">Responder</a>
+        </div>
     </div>
+    
 </body>
 </html>
